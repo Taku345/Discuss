@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Message;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Room;
@@ -24,14 +26,13 @@ class DatabaseSeeder extends Seeder
       ->recycle($users)
       ->create();
 
-    $room_users = Room_User::factory(1)
-      ->recycle($users)
-      ->recycle($rooms)
+    $room_users = RoomUser::factory(200)
+      // ->recycle($users)
+      // ->recycle($rooms)
       ->create();
 
-    // \App\Models\User::factory()->create([
-    //     'name' => 'Test User',
-    //     'email' => 'test@example.com',
-    // ]);
+    Message::factory(1000)
+      // ->recycle($room_users)
+      ->create();
   }
 }
