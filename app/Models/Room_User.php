@@ -10,6 +10,7 @@ class Room_User extends Model
 {
   use HasFactory;
   protected $table = 'room_user';
+  // branch テスト
 
   public function messages(): HasMany
   {
