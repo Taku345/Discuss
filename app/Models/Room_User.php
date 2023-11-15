@@ -11,6 +11,7 @@ class Room_User extends Model
   use HasFactory;
   protected $table = 'room_user';
   // branch テスト
+  // モデル名の変更テスト
 
   public function messages(): HasMany
   {
