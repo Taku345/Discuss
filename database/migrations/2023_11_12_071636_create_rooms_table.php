@@ -13,7 +13,13 @@ return new class extends Migration
   {
     Schema::create('rooms', function (Blueprint $table) {
       $table->id();
+      $table->foreignId('user_id')->constrained('users');
+      $table->string('name');
+      $table->text('explanation')->nullable(true);
+      $table->timestamp('started_at');
+      $table->timestamp('finished_at');
       $table->timestamps();
+      $table->softDeletes();
     });
   }
 
