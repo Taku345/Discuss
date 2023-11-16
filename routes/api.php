@@ -1,5 +1,7 @@
 <?php
 
+// use App\Http\Controllers\RoomController;
+use App\Http\Controllers\Api\RoomController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +16,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-  return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//   return $request->user();
+// });
+
+
+Route::middleware('auth:sanctum')->group(function () {
+  Route::get('/user', function (Request $request) {
+    return $request->user();
+  });
 });
+
+// Route::resource('rooms', RoomController::class);
+
+
+Route::group(['middleware' => ['api', 'cors']], function () {
+  Route::options('rooms', function () {
+    return response()->json();
+  });
+  Route::resource('rooms', RoomController::class);
+  // Route::resource('rooms', 'Api\RoomController'); //なぜかエラー、どこかでApiフォルダも認識するなどの設定が必要？
+});
+
+
+//    http://localhost/api/user
+//    http://localhost/api/list
 
 //APIのCORS対策、
 // Route::group(['middleware' => ['api', 'cors']], function(){

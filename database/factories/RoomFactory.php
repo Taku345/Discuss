@@ -19,7 +19,6 @@ class RoomFactory extends Factory
   {
     return [
       'user_id' => User::factory(),
-
       'name' => $this->faker->realText($maxNbChars = 20),
       'explanation' => $this->faker->realText($maxNbChars = 50),
       'started_at' => $this->faker->dateTimeBetween('-30 days', '-15 days'),
