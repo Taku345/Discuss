@@ -18,8 +18,6 @@ class DatabaseSeeder extends Seeder
    */
   public function run(): void
   {
-
-
     $users = User::factory(10)->create();
 
     $rooms = Room::factory(50)
@@ -27,12 +25,9 @@ class DatabaseSeeder extends Seeder
       ->create();
 
     $room_users = RoomUser::factory(200)
-      // ->recycle($users)
-      // ->recycle($rooms)
       ->create();
 
     Message::factory(1000)
-      // ->recycle($room_users)
       ->create();
   }
 }
