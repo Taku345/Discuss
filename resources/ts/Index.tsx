@@ -1,29 +1,17 @@
-import axios from 'axios';
-import React, { useEffect } from 'react';
+import axios, { AxiosResponse } from 'axios';
+import React, { useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import { Room } from '../types/apiTypes';
+import Rooms from './components/Rooms';
 
 const Index: React.FC = () => {
 
-  // 先ほど作成したLaravelのAPIのURL
-  const url = "http://localhost/api/rooms";
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const res = await axios.get(url);
-        console.log(res);
-        return;
-      } catch (e) {
-        return e;
-      }
-    })();
-  }, []);
+  const metaCsrfToken = document.querySelector("meta[name='csrf-token']") as HTMLMetaElement;
+  const csrfToken = useRef<string>(metaCsrfToken.content);
 
   return (
-    <div>
-      Hello World!!!テストテスト
-    </div>
-  );
+    <Rooms />
+  )
 }
 
 

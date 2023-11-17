@@ -10,8 +10,7 @@ class RoomController extends Controller
 {
   public function index()
   {
-    $json = json_encode(Room::all());
-    echo $json;
+    $json = Room::all();
     return response()->json(
       $json,
       200,
@@ -32,7 +31,13 @@ class RoomController extends Controller
 
   public function show($id)
   {
-    //
+    $json = Room::find($id);
+    return response()->json(
+      $json,
+      200,
+      [],
+      JSON_UNESCAPED_UNICODE //文字化け対策
+    );
   }
 
   public function edit($id)

@@ -27,16 +27,15 @@ Route::middleware('auth:sanctum')->group(function () {
   });
 });
 
-// Route::resource('rooms', RoomController::class);
-
-
-Route::group(['middleware' => ['api', 'cors']], function () {
-  Route::options('rooms', function () {
-    return response()->json();
-  });
-  Route::resource('rooms', RoomController::class);
-  // Route::resource('rooms', 'Api\RoomController'); //なぜかエラー、どこかでApiフォルダも認識するなどの設定が必要？
-});
+Route::resource('rooms', RoomController::class);
+//以下は古い書き方？viteを使わない場合の？なのかも？
+// Route::group(['middleware' => ['api', 'cors']], function () {
+//   Route::options('rooms', function () {
+//     return response()->json();
+//   });
+//   Route::resource('rooms', RoomController::class);
+//   // Route::resource('rooms', 'Api\RoomController'); //なぜかエラー、どこかでApiフォルダも認識するなどの設定が必要？
+// });
 
 
 //    http://localhost/api/user
