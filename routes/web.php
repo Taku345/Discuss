@@ -35,9 +35,6 @@ Route::middleware('auth')->group(function () {
   Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/app', function () {
-  return Inertia::render('app');
-});
 Route::get('/index', function () {
   return view('index');
 });

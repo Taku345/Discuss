@@ -1,8 +1,8 @@
-import axios, { AxiosResponse } from 'axios';
-import React, { useEffect, useRef, useState } from 'react';
-import { createRoot } from 'react-dom/client';
-import { Room } from '../types/apiTypes';
+import React, { useRef } from 'react';
 import Rooms from './components/Rooms';
+//Reactのバージョンダウン対応
+// import { createRoot } from 'react-dom/client'; //react18から
+import { render } from 'react-dom';
 
 const Index: React.FC = () => {
 
@@ -14,9 +14,10 @@ const Index: React.FC = () => {
   )
 }
 
-
 const container = document.getElementById('index');
 if (container) {
-  const root = createRoot(container);
-  root.render(<Index />);
+  //Reactのバージョンダウン対応
+  // const root = createRoot(container);
+  // root.render(<Index />);
+  render(<Index />, container);
 }

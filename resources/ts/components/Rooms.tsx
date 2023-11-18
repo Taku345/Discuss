@@ -1,6 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
-import { createRoot } from 'react-dom/client';
 import { Room } from '../../types/apiTypes'
 
 const Rooms: React.FC = () => {
