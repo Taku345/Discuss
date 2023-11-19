@@ -3,6 +3,9 @@ import Rooms from './components/Rooms';
 //Reactのバージョンダウン対応
 // import { createRoot } from 'react-dom/client'; //react18から
 import { render } from 'react-dom';
+import Chat from './components/Chat';
+import '../css/index.css';
+import { Card, CardContent, Grid } from '@material-ui/core';
 
 const Index: React.FC = () => {
 
@@ -10,7 +13,25 @@ const Index: React.FC = () => {
   const csrfToken = useRef<string>(metaCsrfToken.content);
 
   return (
-    <Rooms />
+    <div className='root'>
+      <Grid container>
+        <Grid item xs={4}>
+          <Card>
+            <CardContent>
+              <Rooms />
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xs={8}>
+          {/* <Card>
+            <CardContent> */}
+          <Chat />
+          {/* </CardContent>
+          </Card> */}
+        </Grid>
+      </Grid>
+
+    </div>
   )
 }
 
