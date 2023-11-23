@@ -9,16 +9,16 @@
 //   updated_at: string; // 同上
 //   deleted_at: Boolean | null; // もしnullを許容する場合
 // }
-export interface Room {
-  id: number;
-  user_id: number;
-  name: string;
-  explanation: string;
-  started_at: string; // 日時の文字列として扱う場合、ISO 8601 形式などに変換する必要があります
-  finished_at: string; // 同上
-  created_at: string; // 同上
-  updated_at: string; // 同上
-  deleted_at: Boolean | null; // もしnullを許容する場合
+export class Room {
+  id: string = '';
+  user_id: string = '';
+  name: string = '';
+  explanation: string = '';
+  started_at: string = ''; // 日時の文字列として扱う場合、ISO 8601 形式などに変換する必要
+  finished_at: string = '';
+  created_at: string = '';
+  updated_at: string = '';
+  deleted_at: Boolean | null = null; // もしnullを許容する場合
 }
 
 
@@ -30,6 +30,7 @@ export interface Room {
 
 
 //////////////////以下見本///////////////////////////////////
+
 //主にAPIから取得するjsonの型情報を定義
 //reduxのinitialStateで簡単に指定できるよう、classで定義しインスタンスを渡す
 //クラス定義で同時にインターフェースも定義されるので便利

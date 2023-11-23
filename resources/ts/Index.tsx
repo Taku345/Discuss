@@ -5,7 +5,10 @@ import Rooms from './components/Rooms';
 import { render } from 'react-dom';
 import Chat from './components/Chat';
 import '../css/index.css';
-import { Card, CardContent, Grid } from '@material-ui/core';
+import { Card, CardContent, CssBaseline, Grid } from '@material-ui/core';
+import Home from './components/Home';
+import { Provider } from 'react-redux';
+import store from './store';
 
 const Index: React.FC = () => {
 
@@ -14,23 +17,17 @@ const Index: React.FC = () => {
 
   return (
     <div className='root'>
-      <Grid container>
-        <Grid item xs={4}>
-          <Card>
-            <CardContent>
-              <Rooms />
-            </CardContent>
-          </Card>
+      <Provider store={store}>
+        <CssBaseline />
+        <Grid container>
+          <Grid item xs={3}>
+            <Rooms />
+          </Grid>
+          <Grid item xs={9}>
+            <Home />
+          </Grid>
         </Grid>
-        <Grid item xs={8}>
-          {/* <Card>
-            <CardContent> */}
-          <Chat />
-          {/* </CardContent>
-          </Card> */}
-        </Grid>
-      </Grid>
-
+      </Provider>
     </div>
   )
 }

@@ -11,11 +11,14 @@ const Rooms: React.FC = () => {
   const [room, setRoom] = useState<Room>();
 
   // 先ほど作成したLaravelのAPIのURL
-  const url = "http://localhost/api/rooms/22";
+  const url = "http://localhost/api/rooms/1";
 
   useEffect(() => {
     (async () => {
       try {
+        axios.get('/sanctum/csrf-cookie').then(response => {
+          // ログイン…
+        })
         const res: AxiosResponse<Room> = await axios.get<Room>(url);
         setRoom(res.data);
         return;
@@ -37,6 +40,25 @@ const Rooms: React.FC = () => {
     }
   };
 
+  const storeRoom = async (e: any) => {
+    e.preventDefault();
+    const newRoom = {
+      'name': 'ルーム作成テスト',
+      'explanation': 'ルーム作成テスト説明文',
+      'started_at': new Date().toLocaleString('sv-SE'),
+      'finished_at': new Date().toLocaleString('sv-SE'),
+    }
+    try {
+      const res: AxiosResponse<Room> = await axios.post<Room>(`http://localhost/api/rooms`, newRoom);
+      console.log(res.data);
+      // setRoom(res.data);
+      return;
+    } catch (e) {
+      console.log(e);
+      return e;
+    }
+  };
+
   return (
     <div>
       <p>ルーム取得テスト</p>
@@ -44,6 +66,7 @@ const Rooms: React.FC = () => {
 
 
       <input type="number" onChange={updateRoom} ></input >
+      <button onClick={storeRoom} >storeRoom</button >
     </div >
   );
 }
