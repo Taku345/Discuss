@@ -13,7 +13,7 @@ export class Room {
   id: string = '';
   user_id: string = '';
   name: string = '';
-  explanation: string = '';
+  discription: string = '';
   started_at: string = ''; // 日時の文字列として扱う場合、ISO 8601 形式などに変換する必要
   finished_at: string = '';
   created_at: string = '';

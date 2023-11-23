@@ -37,7 +37,7 @@ class Room extends Model
   protected $fillable = [
     'user_id',
     'name',
-    'explanation',
+    'description',
     'started_at',
     'finished_at',
   ];

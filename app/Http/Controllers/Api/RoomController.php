@@ -30,14 +30,14 @@ class RoomController extends Controller
     $room = Room::create([
       'user_id' => Auth::id(),
       'name' => $request->name,
-      'explanation' => $request->explanation,
+      'description' => $request->description,
       'started_at' => $request->started_at,
       'finished_at' => $request->finished_at,
     ]);
     return response()->json(
-      $room, 201
+      $room,
+      201
     );
-
   }
 
   public function show($id)
@@ -54,8 +54,9 @@ class RoomController extends Controller
     $room = Room::where('id', $id)->update($request->all());
     if ($room) {
       return response()->json(
-        $room
-      , 200);
+        $room,
+        200
+      );
     } else {
       return response()->json([
         'message' => 'Room update error',

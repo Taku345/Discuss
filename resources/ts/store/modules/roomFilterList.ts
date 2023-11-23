@@ -17,9 +17,6 @@ const roomFilterList = createSlice({
   reducers: {
     changedFilter(state, { type, payload }) {
       state.filter = { ...state.filter, ...payload };
-      state.filteredList = state.list.filter((room) => {
-        return //ここにfilter処理、filter関数の書き方確認
-      });
     }
   },
   extraReducers: (builder) => {
@@ -30,7 +27,6 @@ const roomFilterList = createSlice({
       .addCase(initRoomFilterList.fulfilled, (state, action) => {
         state.status = '取得済'
         state.list = action.payload;
-        state.filteredList = action.payload;
       })
       .addCase(initRoomFilterList.rejected, (state) => {
         state.status = '取得エラー'

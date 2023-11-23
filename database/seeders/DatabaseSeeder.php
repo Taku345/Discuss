@@ -8,7 +8,6 @@ use App\Models\Message;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Room;
-use App\Models\Room_User;
 use App\Models\RoomUser;
 
 class DatabaseSeeder extends Seeder
@@ -19,6 +18,8 @@ class DatabaseSeeder extends Seeder
   public function run(): void
   {
     $users = User::factory(10)->create();
+
+    $this->call(UserSeeder::class); //テストユーザー追加
 
     $rooms = Room::factory(50)
       ->recycle($users)

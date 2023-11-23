@@ -16,6 +16,5 @@ export class RoomFilter {
 export class RoomFilterList {
   filter: RoomFilter = new RoomFilter();
   list: Room[] = [];
-  filteredList: Room[] = []
   status: string = '';
 }

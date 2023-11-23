@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import Rooms from './components/Rooms';
 //Reactのバージョンダウン対応
 // import { createRoot } from 'react-dom/client'; //react18から
 import { render } from 'react-dom';
@@ -9,6 +8,9 @@ import { Card, CardContent, CssBaseline, Grid } from '@material-ui/core';
 import Home from './components/Home';
 import { Provider } from 'react-redux';
 import store from './store';
+import LeftDrawer, { DrawerHeader } from './components/LeftDrawer';
+import { Box } from '@mui/material';
+import RoomList from './components/RoomList';
 
 const Index: React.FC = () => {
 
@@ -17,16 +19,15 @@ const Index: React.FC = () => {
 
   return (
     <div className='root'>
+      <CssBaseline />
       <Provider store={store}>
-        <CssBaseline />
-        <Grid container>
-          <Grid item xs={3}>
-            <Rooms />
-          </Grid>
-          <Grid item xs={9}>
+        <Box sx={{ display: 'flex', flexGrow: 1 }} className='FlexBox1'>
+          <LeftDrawer />
+          <Box component="main" sx={{ flexGrow: 1, p: 3 }} className='FlexChild1' >
+            <DrawerHeader />
             <Home />
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
       </Provider>
     </div>
   )
