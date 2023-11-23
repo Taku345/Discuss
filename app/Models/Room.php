@@ -34,7 +34,7 @@ class Room extends Model
     return $this->belongsToMany(User::class);
   }
 
-    protected $fillable = [
+  protected $fillable = [
     'user_id',
     'name',
     'explanation',
@@ -42,4 +42,3 @@ class Room extends Model
     'finished_at',
   ];
 }
-

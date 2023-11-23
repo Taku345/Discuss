@@ -9,12 +9,12 @@ const Home: React.FC = () => {
     <div>
       <h1>Discuss</h1>
       <Grid container>
-        <Grid item xs={8}>
+        <Grid item xs={12}>
           <RoomBoard />
         </Grid>
-        <Grid item xs={4}>
+        {/* <Grid item xs={4}>
           <RankingBoard />
-        </Grid>
+        </Grid> */}
       </Grid>
     </div>
   )

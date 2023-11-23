@@ -9,9 +9,6 @@ export default function RoomList() {
 
   return (
     <div>
-      <DataGrid>
-
-      </DataGrid>
 
 
       <List sx={{ width: '100%', height: '100%', bgcolor: 'gray' }}>
