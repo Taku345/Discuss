@@ -20,9 +20,9 @@ export default defineConfig({
       host: 'localhost',
     },
   },
-  build: {
-    outDir: 'dist', // 出力先ディレクトリ
-  },
+  // build: {
+  //   outDir: 'dist', // 出力先ディレクトリ
+  // },
 });
 
 
