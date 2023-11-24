@@ -20,6 +20,9 @@ export default defineConfig({
       host: 'localhost',
     },
   },
+  build: {
+    outDir: 'public', // 出力先ディレクトリを 'public' に変更する
+  },
 });
 
 
