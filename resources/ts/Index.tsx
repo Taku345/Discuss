@@ -4,13 +4,12 @@ import React, { useRef } from 'react';
 import { render } from 'react-dom';
 import Chat from './components/Chat';
 import '../css/index.css';
-import { Card, CardContent, CssBaseline, Grid } from '@material-ui/core';
+import { CssBaseline, Grid } from '@material-ui/core';
 import Home from './components/Home';
 import { Provider } from 'react-redux';
 import store from './store';
 import LeftDrawer, { DrawerHeader } from './components/LeftDrawer';
 import { Box } from '@mui/material';
-import RoomList from './components/RoomList';
 
 const Index: React.FC = () => {
 
@@ -40,3 +39,5 @@ if (container) {
   // root.render(<Index />);
   render(<Index />, container);
 }
+
+export default Index;
