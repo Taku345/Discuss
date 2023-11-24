@@ -21,7 +21,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'public', // 出力先ディレクトリを 'public' に変更する
+    outDir: 'dist', // 出力先ディレクトリ
   },
 });
 
