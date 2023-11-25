@@ -15,14 +15,15 @@ export default defineConfig({
     }),
     react(),
   ],
-  server: {
-    hmr: {
-      host: 'localhost',
-    },
-  },
-  // build: {
-  //   outDir: 'dist', // 出力先ディレクトリ
+  // server: {
+  //   open: true,
+  //   cors: false,
+  //   hmr: { //hot module reload 開発用なので本番無関係
+  //     host: 'localhost',
+  //   },
   // },
+  base: '/public',
+  // root: '/virtual/takuma432/public_html/takuma432.shop/Discuss',
 });
 
 

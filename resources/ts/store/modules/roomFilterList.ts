@@ -6,7 +6,8 @@ import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 const initRoomFilterList = createAsyncThunk<Room[]>(
   'initRoomFilterList/get',
   async (_payload) => {
-    const res: AxiosResponse<Room[]> = await axios.get<Room[]>(`http://localhost/api/rooms`);
+    // const res: AxiosResponse<Room[]> = await axios.get<Room[]>(`http://localhost/api/rooms`);
+    const res: AxiosResponse<Room[]> = await axios.get<Room[]>(`http://takuma432.shop/api/rooms`); //そもそもtsxが読み込めないのでここは後で
     return res.data;
   }
 )

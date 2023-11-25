@@ -25,8 +25,8 @@ Route::middleware('auth:sanctum')->group(function () {
   Route::get('/user', function (Request $request) {
     return $request->user();
   });
-  Route::apiResource('/rooms', RoomController::class);
 });
+Route::apiResource('/rooms', RoomController::class);
 
 //以下は古い書き方？viteを使わない場合の？なのかも？
 // Route::group(['middleware' => ['api', 'cors']], function () {
