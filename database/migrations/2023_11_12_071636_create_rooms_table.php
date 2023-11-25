@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -16,8 +17,8 @@ return new class extends Migration
       $table->foreignId('user_id')->constrained('users');
       $table->string('name');
       $table->text('description')->nullable(true);
-      $table->timestamp('started_at');
-      $table->timestamp('finished_at');
+      $table->timestamp('started_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+      $table->timestamp('finished_at')->default(DB::raw('CURRENT_TIMESTAMP'));
       $table->timestamps();
       $table->softDeletes();
     });
